@@ -14,8 +14,15 @@
     <link rel="stylesheet" href="./css/dingzhi.css" />
     <link rel="stylesheet" href="./swiper/swiper-bundle.min.css" />
     <script src="./swiper/swiper-bundle.min.js"></script>
+    <script>
+      if (!localStorage.getItem('token')){
+        alert('需登录才有权访问该页面')
+        location.href='login.html'
+      }
+    </script>
   </head>
   <body>
+
     <!-- 头部 -->
     <div class="tb">
       <div class="w">
@@ -36,14 +43,14 @@
       let pg = document.querySelector(".pg");
       let username = JSON.parse(localStorage.getItem("data"));
       // console.log(username)
-      if (!username) {
+      if (!localStorage.getItem('token')) {
         pg.innerHTML = `
     <span>注册</span><span>|</span
         ><span><a href="./login.html"> 登录</a></span>
       `;
       } else {
         pg.innerHTML = `
-      <a href="javascript:;">你好 ${username.uname}</a>
+      <a href="javascript:;">欢迎 ${username.name}</a>
     `;
       }
     </script>
