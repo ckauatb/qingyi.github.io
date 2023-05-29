@@ -175,10 +175,13 @@ header input {
 .xhms .w {
   background-color: rgb(255, 255, 255);
 }
+.cv{
+  position: relative;
+}
 .xhms span {
   position: absolute;
-  top: 15.625rem;
-  left: 13.4375rem;
+  top: 16.625rem;
+  left: 3.4375rem;
 }
 .xhms .w img {
   height: 21.875rem;
@@ -379,9 +382,8 @@ header input {
   color: #424242;
 }
 .jkl .w .yh {
-  position: absolute;
-  top: 16rem;
-  right: 10.0625rem;
+margin-left: 940px;
+margin-top: -240px;
   width: 15.125rem;
   height: 9.25rem;
 }
