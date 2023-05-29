@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>联想lenovo中国商城,提供联想笔记本电脑以及手机官网价格报价</title>
+    <link rel="stylesheet" href="./css/animate.min.css">
     <link
       rel="shortcut icon"
       href="./img/bitbug_favicon.ico"
@@ -31,7 +32,7 @@
         <ul>
           <li>会员</li>
           <li>社区</li>
-          <li class="ds">购买<img class="tp" src="./img/1.png" alt="" /></li>
+          <li class="ds">购买</li>
         </ul>
       </div>
       <div class="pg">
@@ -43,11 +44,6 @@
         src="./img/c8f87ce8-1e14-4bb3-854e-f86af0f07072.png"
         alt=""
       />
-      <ol class="ol">
-        <li>商城</li>
-        <li>企业购</li>
-        <li>门店</li>
-      </ol>
     </section>
     <script>
       let ol = document.querySelector(".ol");
@@ -64,14 +60,14 @@
       let pg = document.querySelector(".pg");
       let username = JSON.parse(localStorage.getItem("data"));
       // console.log(username)
-      if (!username) {
+      if (!localStorage.getItem('token')) {
         pg.innerHTML = `
     <span>注册</span><span>|</span
         ><span><a href="./login.html"> 登录</a></span>
       `;
       } else {
         pg.innerHTML = `
-      <a href="javascript:;">你好 ${username.uname}</a>
+      <a href="javascript:;">欢迎 ${username.name}</a>
     `;
       }
     </script>
@@ -91,7 +87,7 @@
           <li><a href="">乐豆 购</a></li>
           <li><a href="">0元购</a></li>
         </ul>
-        <input type="text" value="520免单节" />
+        <input type="text" placeholder="520免单节" />
         <img class="kj" src="./img/3.png" alt="" />
       </div>
     </header>
@@ -153,10 +149,13 @@
     <div class="floor">
       <div class="xhms">
         <div class="w">
-          <img src="./img/8.png" alt="" />
+          <div class="cv animate__animated">
+            <img src="./img/8.png" alt="" />
           <span>
             <i id="hour"></i>:<i id="minutes"></i>:<i id="scond"></i
           ></span>
+          </div>
+          
           <div class="sb">
             <i id="countdown">00:00场-正在抢购</i><i>24:00场-即将开始</i>
           </div>
@@ -190,7 +189,7 @@
           let now = +new Date();
 
           // 2. 得到指定时间的时间戳
-          let last = +new Date("2022-11-21 24:00:00");
+          let last = +new Date(`${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()} 24:00:00`);
           // 3. （计算剩余的毫秒数） / 1000 === 剩余的秒数
           let count = (last - now) / 1000;
           // console.log(count)
