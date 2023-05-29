@@ -26,5 +26,35 @@ $(function () {
         scrollTop: 0,
       });
     });
+    $(window).scroll(function () { 
+      let num = $(document).scrollTop()
+      console.log(num);
+      if (num>790) {
+       $('.b .hk-1').addClass('animate__animated animate__fadeInTopLeft')
+      }
+      if (num > 1080) {
+      
+        $('.b .hk-2 img').addClass('animate__animated animate__fadeInRightBig')
+        
+      }
+      if (num > 1120) {
+        $('.b .hk-3 img').addClass('animate__animated animate__fadeInLeftBig')
+        
+      }
+      if (num > 1210) {
+        $('.b .hk-5 img').addClass('animate__animated animate__fadeInUpBig')
+        
+      }
+      if (num > 1300) {
+        $('.b .hk-6 img').addClass('animate__animated animate__fadeInBottomRight')
+        // $('.b .hk-4 img').addClass('animate__animated animate__fadeIn')
+      }
+      if (num > 1180) {
+        // $('.b .hk-6 img').addClass('animate__animated animate__fadeInBottomRight')
+        $('.b .hk-4 img').addClass('animate__animated animate__fadeIn')
+      }
+    
+     
+    })
   });
   
