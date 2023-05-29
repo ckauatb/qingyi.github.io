@@ -1,91 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录</title>
-    <link
-      rel="shortcut icon"
-      href="./img/bitbug_favicon.ico"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="./css/login.css" />
-  </head>
-  <body>
-    <header>
-      <div class="w">
-        <img class="jk" src="./img/100.jpg" alt="" />
-        <ul>
-          <li><a href="./index.html">联想首页</a></li>
-          <li><a href="">商城</a></li>
-          <li><a href="">企业购</a></li>
-          <li><a href="">政教及大企业</a></li>
-          <li><a href="">服务</a></li>
-          <li><a href="">会员</a></li>
-          <li><a href="">社区</a></li>
-          <li><a href="">品牌</a></li>
-          <li><a href="">购买</a></li>
-        </ul>
-        <img
-          class="kj"
-          src="./img/c8f87ce8-1e14-4bb3-854e-f86af0f07072.png"
-          alt=""
-        />
-      </div>
-    </header>
-    <img class="lk" src="./img/101.png" alt="" />
-    <div class="dly">
-      <form method="post">
-        <h2>联想会员登录</h2>
-        <img src="./img/102.png" alt="" />
-        <div class="kl">
-          <input type="text" placeholder="邮箱/手机号" name="username" />
-<span class="qw"></span>
-          <input type="password" placeholder="密码" name="password" />
-        <span class="wq"></span>
+    <!-- 导入字体图标 -->
+    <link rel="stylesheet" href="./font_mw3z7ts489g/iconfont.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/index.min.js"></script>
+    <script src="https://unpkg.com/vue@2"></script>
+
+</head>
+
+<body>
+  <canvas id="my-canvas"></canvas>
+<script>
+  var confettiSettings = {"target":"my-canvas","max":"80","size":"2","animate":true,"props":["square","triangle","line",{"type":"svg","src":"site/hat.svg","size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],"clock":"25","rotate":true,"width":"1536","height":"658","start_from_edge":false,"respawn":true}
+  var confetti = new ConfettiGenerator(confettiSettings);
+  confetti.render();
+</script>
+
+    <div class="shell">
+      
+        <div class="container a-container" id="a-container">
+            <form action="" method="" class="form" id="a-form">
+                <h2 class="form_title title">创建账号</h2>
+                <div class="form_icons">
+                    <i class="iconfont icon-QQ"></i>
+                    <i class="iconfont icon-weixin"></i>
+                    <i class="iconfont icon-bilibili-line"></i>
+                </div>
+                <span class="form_span">选择注册方式活电子邮箱注册</span>
+                <input type="text" v-model="name" class="form_input" placeholder="Name">
+                <div v-if="yz[0]" style="color: red;">名字需为2-4个汉字</div>
+                <input type="text" v-model="email" class="form_input" placeholder="Email">
+                <div v-if="yz[1]"  style="color: red;">请输入正确的邮箱地址</div>
+                <input type="text" v-model="pass" class="form_input" placeholder="Password">
+                <div v-if="yz[2]"  style="color: red;">必须包含大小写字母和数字,长度在6-10之间</div>
+                <div v-if="df"  style="color: rgb(63, 151, 233)">注册成功,现在即可登录</div>
+      
+                <button @click="btn1" class="form_button button submit">SIGN UP</button>
+            </form>
         </div>
-        <input type="checkbox" name="" id="ok" class="remember" />
-        已阅读并同意<span>注册协议</span>和<span>隐私政策</span>
-        <a href="./index.html"><button>登录</button></a>
-        <div class="gh">
-          <h4>手机验证码登录</h4>
-          <div class="fj"><i>立即注册</i>|<i>忘记密码?</i></div>
+
+        <div class="container b-container" id="b-container">
+            <form action="" method="" class="form" id="b-form">
+                <h2 class="form_title title">登入账号</h2>
+                <div class="form_icons">
+                    <i class="iconfont icon-QQ"></i>
+                    <i class="iconfont icon-weixin"></i>
+                    <i class="iconfont icon-bilibili-line"></i>
+                </div>
+                <span class="form_span">选择登录方式电子邮箱登录</span>
+                <input type="text" v-model="Email" class="form_input" placeholder="Email">
+                <div v-if="yz1"  style="color: red;">帐号不存在</div>
+                <input type="text" v-model="Pass" class="form_input" placeholder="Password">
+                <div v-if="yz2"  style="color: red;">密码有误</div>              
+                <a class="form_link">忘记密码？</a>
+                <button @click="btn2" class="form_button button submit">SIGN IN</button>
+            </form>
         </div>
-        <img class="ty" src="./img/103.png" alt="" />
-      </form>
+
+        <div class="switch" id="switch-cnt">
+            <div class="switch_circle"></div>
+            <div class="switch_circle switch_circle-t"></div>
+            <div class="switch_container" id="switch-c1">
+                <h2 class="switch_title title" style="letter-spacing: 0;">Welcome Back！</h2>
+                <p class="switch_description description">已经有账号了嘛，去登入账号来进入奇妙世界吧！！！</p>
+                <button class="switch_button button switch-btn">SIGN IN</button>
+            </div>
+
+            <div class="switch_container is-hidden" id="switch-c2">
+                <h2 class="switch_title title" style="letter-spacing: 0;">Hello Friend！</h2>
+                <p class="switch_description description">去注册一个账号，成为尊贵的粉丝会员，让我们踏入奇妙的旅途！</p>
+                <button class="switch_button button switch-btn">SIGN UP</button>
+            </div>
+        </div>
     </div>
     <script>
-      let remember = document.querySelector(".remember");
-      let uname = document.querySelector("[name=username]");
-      let pass = document.querySelector("[name=password]");
-      let form = document.querySelector("form");
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (!remember.checked) {
-          alert("请先同意协议");
-
-          return;
+       var app = new Vue({
+        el: ".shell",
+        data: {
+          name:'',
+          email:'',
+          pass:'',
+          Email:'',
+          Pass:'',
+          yz:[false,false,false],
+          df:false,
+          yz1:false,
+          yz2:false
+        },
+       methods:{
+        btn1(){
+          let reg=/^[\u4E00-\u9FA5]{2,4}$/
+          !reg.test(this.name)?this.yz.splice(0,1,true):this.yz.splice(0,1,false)
+          let reg1=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+          !reg1.test(this.email)?this.yz.splice(1,2,true):this.yz.splice(1,2,false)
+          let reg2=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,10}$/
+          !reg2.test(this.pass)?this.yz.splice(2,3,true):this.yz.splice(2,3,false)
+          if (reg.test(this.name)&&(reg1.test(this.email))&&(reg2.test(this.pass))) {
+            
+            localStorage.setItem('data',JSON.stringify({name:this.name,email:this.email,pass:this.pass}))
+            this.df=true
+            this.name=this.email=this.pass=''
+            
+          }
+        }, 
+        btn2(){
+        let data=JSON.parse(localStorage.getItem('data'))
+        this.Email!=data.email?this.yz1=true:this.yz1=false
+        this.Pass!=data.pass&&!this.yz1?this.yz2=true:this.yz2=false
+        if (this.Email==data.email&&this.Pass==data.pass) {
+          localStorage.setItem('token',true)
+          location.href='index.html'
         }
-        let obj = {
-          uname: uname.value,
-          pass: pass.value,
-        };
-        localStorage.setItem("data", JSON.stringify(obj));
-        location.href = "./index.html";
+       }
+       }
+      
       });
-      let data = JSON.parse(localStorage.getItem("data"));
-      if (data) {
-        uname.value = data.uname;
-        pass.value = data.pass;
-        remember.checked = true;
-      }
     </script>
-    <div class="ct">
-      <div>版权所有：1998-2022 联想集团|法律公告|隐私权政策</div>
-      <div>
-        京ICP备11035381|京公网安备110108007970号|营业执照：110000410127232
-      </div>
-    </div>
-  </body>
-</html>
+    <script>
+      let switchCtn = document.querySelector("#switch-cnt");
+let switchC1 = document.querySelector("#switch-c1");
+let switchC2 = document.querySelector("#switch-c2");
+let switchCircle = document.querySelectorAll(".switch_circle");
+let switchBtn = document.querySelectorAll(".switch-btn");
+let aContainer = document.querySelector("#a-container");
+let bContainer = document.querySelector("#b-container");
+let allButtons = document.querySelectorAll(".submit");
+
+let getButtons = (e) => e.preventDefault()
+let changeForm = (e) => {
+    // 修改类名
+    switchCtn.classList.add("is-gx");
+    setTimeout(function () {
+        switchCtn.classList.remove("is-gx");
+    }, 1500)
+    switchCtn.classList.toggle("is-txr");
+    switchCircle[0].classList.toggle("is-txr");
+    switchCircle[1].classList.toggle("is-txr");
+
+    switchC1.classList.toggle("is-hidden");
+    switchC2.classList.toggle("is-hidden");
+    aContainer.classList.toggle("is-txl");
+    bContainer.classList.toggle("is-txl");
+    bContainer.classList.toggle("is-z");
+}
+// 点击切换
+let shell = (e) => {
+    for (var i = 0; i < allButtons.length; i++)
+        allButtons[i].addEventListener("click", getButtons);
+    for (var i = 0; i < switchBtn.length; i++)
+        switchBtn[i].addEventListener("click", changeForm)
+}
+window.addEventListener("load", shell);
+
+    </script>
+</body>
+
+
+</html> 
